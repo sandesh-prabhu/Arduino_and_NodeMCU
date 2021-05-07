@@ -1,23 +1,17 @@
-#include<Servo.h>
-Servo window;
-int GasPin = 7;
-int Gas = LOW;
+int led = 10; 
+ 
 void setup() {
-   window.attach(9);
-  pinMode(GasPin,INPUT);
-   window.write(0);
+   // initialize the digital pin as an output.
+   pinMode(led, OUTPUT);      
+} 
+// the loop routine runs over and over again forever: 
+void loop() {   
+   digitalWrite(led, HIGH);   
+   // turn the LED on (HIGH is the voltage level)   
+   delay(1000);               
+   // wait for a second   
+   digitalWrite(led, LOW);    
+   // turn the LED off by making the voltage LOW   
+   delay(1000);               
+   // wait for a second 
 }
-void loop() {
-  Gas = digitalRead(GasPin);
-    if(Gas==HIGH)
-  {
-     Serial.println("FLAME");
-      window.write(90);
-      delay(3000);
-  }
-else
-{
-  window.write(0);
-    Serial.println("Normal");
-}
-  }
